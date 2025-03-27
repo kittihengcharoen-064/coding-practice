@@ -19,7 +19,7 @@ export function test(condition, cases) {
   for (const [testCase, expectedOutput] of cases) {
     try {
       const result = condition.call(null, ...testCase);
-      const success = result === expectedOutput;
+      const success = checkEqulity(result, expectedOutput);
       logTestResult(condition.name, testCase, result, expectedOutput, success);
     } catch (error) {
       console.error(
@@ -38,4 +38,21 @@ function logTestResult(funcName, testCase, received, expected, success) {
   p(
     `${status} func: \x1b[36m${funcName}\x1b[0m | case: \x1b[34m${testCase}\x1b[0m | Received: \x1b[33m${received}\x1b[0m | Expected: \x1b[31m${expected}\x1b[0m`
   );
+}
+
+/**
+ *
+ * @param {Array} arr1
+ * @param {Array} arr2
+ * @returns {boolean}
+ */
+function checkEqulity(left, right) {
+  if (
+    Array.isArray(left) &&
+    Array.isArray(right) &&
+    left.length == right.length
+  ) {
+    return left.every((l, i) => l === right[i]);
+  }
+  return left === right;
 }

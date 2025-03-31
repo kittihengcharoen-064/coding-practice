@@ -169,15 +169,15 @@ test(factorial, [
 /**
  *
  * @param {number[]} arr
- * @returns {number}
+ * @returns {number[]}
  */
 function findMissingNumber(arr) {
   // Your code goes here
 }
 
 test(findMissingNumber, [
-  [[[1, 2, 3, 5]], 4],
-  [[[10, 12, 13, 14]], 11],
+  [[[1, 2, 3, 5, 8, 12]], [4, 6, 7, 9, 10, 11]],
+  [[[10, 12, 13, 14]], [11]],
 ]);
 
 // Remove Duplicates from an Array

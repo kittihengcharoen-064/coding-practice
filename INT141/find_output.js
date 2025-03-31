@@ -6,7 +6,7 @@ greetingMessage.toUpperCase();
 p("greetingMessage:", greetingMessage);
 
 p("\n");
-
+console.log(new Array(..."string"));
 const colors = ["red", "yellow", "blue"];
 
 let orders = [...[123, 456, 789], 567, 1234, [234, 15, [67]]];
@@ -43,9 +43,9 @@ p(
 p("\n");
 
 p("is [1, 3, 5] an Array:", Array.isArray([1, 3, 5]));
-p('is "[]" an Array:', Array.isArray("[]"));
+p('is "[]" an Array:', Array.isArray([]));
 p("is new Array(5) an Array:", Array.isArray(new Array(5)));
-p("is new Int16Array an Array:", Array.isArray(new Int16Array([15, 33])));
+p("is new Int16Array an Array:", new Int16Array([15, 33]));
 
 p("\n");
 
@@ -102,4 +102,5 @@ p("text.at(2):", text.at(2));
 p('text.replace(/[e*]/g, "x"):', text.replace(/[e*]/g, "x"));
 p('text.split(" "):', text.split(" "));
 p("text.slice(2,3):", text.slice(2, 3));
+p("text.slice(1):", text.slice(2));
 p("text.slice(-2,3):", text.slice(2, -3));

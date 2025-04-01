@@ -95,26 +95,24 @@ h2 {
 
 .whydothis {
     padding: 20px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    column-gap: 10%;
 }
 
 .whydothis h2 {
     text-align: center;
-    grid-column: 1 / span 4;
 }
 
-.whydothis h3 {
-    grid-column: 1 / span 4;
+.whydothis p {
+    width: 45%;
 }
 
 .whydothis > h3 + p {
-    grid-column: 1 / span 2;
+    display: inline-flex;
+    margin-right: 1.5em;
 }
 
 .whydothis > h3 + p + p {
-    grid-column: 3 / span 2;
+    display: inline-flex;
+    margin-left: 1.5em;
 }
 
 a {

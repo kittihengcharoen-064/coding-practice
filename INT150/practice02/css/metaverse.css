@@ -76,6 +76,8 @@ h2 {
 .whoplayer,
 .willhappen {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .whoplayer *,
@@ -85,13 +87,9 @@ h2 {
 
 .whoplayer {
   background: url("../images/conference.png") no-repeat right;
-  display: flex;
-  flex-direction: column;
 }
 
 .willhappen {
-  display: flex;
-  flex-direction: column;
   background: url("../images/avatar.png") no-repeat left;
 }
 

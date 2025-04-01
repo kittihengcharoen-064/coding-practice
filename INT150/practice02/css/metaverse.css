@@ -102,16 +102,15 @@ h2 {
 }
 
 .whydothis p {
+    display: inline-flex;
     width: 45%;
 }
 
 .whydothis > h3 + p {
-    display: inline-flex;
     margin-right: 1.5em;
 }
 
 .whydothis > h3 + p + p {
-    display: inline-flex;
     margin-left: 1.5em;
 }
 

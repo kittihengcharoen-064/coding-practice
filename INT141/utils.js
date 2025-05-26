@@ -36,7 +36,7 @@ export function test(condition, cases) {
 function logTestResult(funcName, testCase, received, expected, success) {
   const status = success ? "✅" : "❌";
   p(
-    `${status} func: \x1b[36m${funcName}\x1b[0m | case: \x1b[34m${testCase}\x1b[0m | Received: \x1b[33m${received}\x1b[0m | Expected: \x1b[31m${expected}\x1b[0m`
+    `${status} func: \x1b[36m${funcName}\x1b[0m | case: \x1b[34m${JSON.stringify(testCase)}\x1b[0m | Received: \x1b[33m${JSON.stringify(received)}\x1b[0m | Expected: \x1b[31m${JSON.stringify(expected)}\x1b[0m`
   );
 }
 

@@ -36,30 +36,68 @@ export function test(condition, cases) {
 function logTestResult(funcName, testCase, received, expected, success) {
   const status = success ? "✅" : "❌";
   p(
-    `${status} func: \x1b[36m${funcName}\x1b[0m | case: \x1b[34m${JSON.stringify(testCase)}\x1b[0m | Received: \x1b[33m${JSON.stringify(received)}\x1b[0m | Expected: \x1b[31m${JSON.stringify(expected)}\x1b[0m`
+    `${status} func: \x1b[36m${funcName}\x1b[0m | case: \x1b[34m${JSON.stringify(
+      testCase
+    )}\x1b[0m | Received: \x1b[33m${JSON.stringify(
+      received
+    )}\x1b[0m | Expected: \x1b[31m${JSON.stringify(expected)}\x1b[0m`
   );
 }
 
 /**
  *
- * @param {Array} arr1
- * @param {Array} arr2
+ * @param {Array} value
+ * @param {Array} other
  * @returns {boolean}
  */
-function checkEqulity(left, right) {
-  if (
-    Array.isArray(left) &&
-    Array.isArray(right) &&
-    left.length == right.length
-  ) {
-    return left.every((l, i) => l === right[i]);
-  } else if (
-    typeof left === "object" &&
-    left !== null &&
-    typeof right === "object" &&
-    right !== null
-  ) {
-    return Object.entries(left).every(([key, value]) => right[key] == value);
+function checkEqulity(value, other) {
+  if (typeof value !== "object" && typeof other !== "object") {
+    return Object.is(value, other);
   }
-  return left === right;
+
+  if (value === null && other === null) {
+    return true;
+  }
+
+  if (typeof value !== typeof other) {
+    return false;
+  }
+
+  if (value === other) {
+    return true;
+  }
+
+  if (Array.isArray(value) && Array.isArray(other)) {
+    if (value.length !== other.length) {
+      return false;
+    }
+
+    for (let i = 0; i < value.length; i++) {
+      if (!checkEqulity(value[i], other[i])) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  if (Array.isArray(value) || Array.isArray(other)) {
+    return false;
+  }
+
+  if (Object.keys(value).length !== Object.keys(other).length) {
+    return false;
+  }
+
+  for (const [k, v] of Object.entries(value)) {
+    if (!(k in other)) {
+      return false;
+    }
+
+    if (!checkEqulity(v, other[k])) {
+      return false;
+    }
+  }
+
+  return true;
 }

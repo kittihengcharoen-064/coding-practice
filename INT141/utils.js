@@ -53,6 +53,13 @@ function checkEqulity(left, right) {
     left.length == right.length
   ) {
     return left.every((l, i) => l === right[i]);
+  } else if (
+    typeof left === "object" &&
+    left !== null &&
+    typeof right === "object" &&
+    right !== null
+  ) {
+    return Object.entries(left).every(([key, value]) => right[key] == value);
   }
   return left === right;
 }

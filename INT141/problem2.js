@@ -151,7 +151,7 @@ Employee.prototype.describe = function () {
   // your code
 };
 
-function EmployeeDescribeTest([employee]) {
+function EmployeeDescribeTest(employee) {
   return employee.describe();
 }
 
